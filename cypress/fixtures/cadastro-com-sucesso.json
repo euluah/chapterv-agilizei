@@ -1,0 +1,9 @@
+{
+    "user": {
+        "email": "paracetamol@gmail.com",
+        "username": "paracetamol",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhcmFjZXRhbW9sQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoicGFyYWNldGFtb2wiLCJpYXQiOjE2ODQ0MTk0NjgsImV4cCI6MTY4OTYwMzQ2OH0._mR-4hzgPTJuTkUz2ezBdnnpHSrOL6gkofZaC92dmL8"
+    }
+}
