@@ -22,7 +22,7 @@ jobs:
     - run: npm install
     - run: npm run  cy:run
       continue-on-error: true
-    - run: npm run report:cypress-mochawesome-reporter
+    - run: npm run report:mochawesome-reporter
     
 #Git Pages
     - name: Deploy to GitHub Pages
