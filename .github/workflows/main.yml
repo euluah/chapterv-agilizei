@@ -1,35 +1,32 @@
+name: ci
+on: 
 
-name: Testes
-
-on:
+  # execucacao por eventos
   push:
-    branches: [ "main" ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    #passos
-    steps:
-    
-    #download do código
-    - uses: actions/checkout@v3
-    - name: Use Node.js 
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-        
-    - run: npm install
-    - run: npm run  cy:run
-      continue-on-error: true
-    - run: npm run report:mochawesome-reporter
-    
-#Git Pages
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.4.1
-      with: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-        BRANCH: gh_pages
-        FOLDER: report/html
-
+    branches:
+      - main
   
+  # execucao programada
+  schedule:
+    - cron:  '00 12 11 * 1'
+    
+  # execucao manual  
+  workflow_dispatch:
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code 🛎
+        uses: actions/checkout@v2
+
+      - name: E2E & UI 🧪
+        uses: cypress-io/github-action@v2
+          
+      - name: Upload a Build Artifact
+        if: always()
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          path: cypress/videos
+          
