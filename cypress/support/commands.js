@@ -25,23 +25,21 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', () => {
-    cy.token().then(response =>{
-        window.localStorage.setItem('jwtToken', response.body.user.token);
-    })
+  cy.token().then(response => {
+    window.localStorage.setItem('jwtToken', response.body.user.token)
+  })
 })
-
 
 Cypress.Commands.add('token', () => {
-    cy.request({
-        url: 'https://api.realworld.io/api/users/login',
-        method: 'POST',
-        body: {
+  cy.request({
+    url: 'https://api.realworld.io/api/users/login',
+    method: 'POST',
+    body: {
 
-            "user": {
-                "email": "dramin@gmail.com",
-                "password": "1234"
-            }
-        }
-    })
+      user: {
+        email: 'dramin@gmail.com',
+        password: '1234'
+      }
+    }
+  })
 })
-
